@@ -4,7 +4,7 @@
 //锁定战宠
 		if (nLockFightPet >= 0 && nLockFightPet <= 5)
 		{
-			if (strlen(bc_char[position].petname) > 0)
+			if (bc_char[position].petpos > -1)
 			{
 				if (bc_char[position].petpos != (nLockFightPet - 1))
 				{
