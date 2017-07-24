@@ -106,3 +106,17 @@ publicfunction.h
 	int port;
 	char servername[30];
 }USERINFO;
+
+DpMain.cpp
+171
+	//New
+	user.port = puser->port;
+	strcpy_s(user.servername, puser->servername);
+	strcpy_s(user.ip, puser->ip);
+
+
+	CString szMsg;
+	NOTIFYPARA para;
+	para.nNotityType=NOTIFY_MSG;
+	//连接服务端
+	if (!ConnectServer(socket, puser->ip, puser->port)){
