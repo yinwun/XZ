@@ -18,3 +18,12 @@
 				SendCommand(cmd);
 			}
 		}
+
+if (charotherinfo.fightpet == -1 && nLockFightPet >= 1 && nLockFightPet <= 5)
+			{
+				SendPetState(nLockFightPet >= 1, 1);
+			}
+			else
+			{
+				SendFightPet(nLockFightPet - 1);
+			}
