@@ -47,3 +47,62 @@
 			}
 DIPIDlg.cpp
 298
+
+				//new
+				m_list.SetItemText(nRow, 4, szIP);
+				m_list.SetItemText(nRow, 5, szPort);
+				m_list.SetItemText(nRow, 6, szServerName);
+			//}
+		}
+		f.Close();		
+	}
+	catch(...){
+	}
+	//帐号处理
+	g_userNum=m_list.GetItemCount();
+	if(g_userNum>0){
+		g_userinfo= new USERINFO[g_userNum];
+		for(int i=0;i<g_userNum;i++){
+			szAccount=m_list.GetItemText(i,0);
+			szPwd=m_list.GetItemText(i,1);
+			szSafeCode=m_list.GetItemText(i,2);
+			szScript=m_list.GetItemText(i,3);
+
+			szIP = m_list.GetItemText(i, 4);
+			szPort = m_list.GetItemText(i, 5);
+			szServerName = m_list.GetItemText(i, 6);
+
+			strcpy_s(g_userinfo[i].charname,szAccount);
+			strcpy_s(g_userinfo[i].password,szPwd);
+			strcpy_s(g_userinfo[i].safecode,szSafeCode);
+			strcpy_s(g_userinfo[i].scriptName,szScript);			
+			g_userinfo[i].index=i;
+
+			
+			//new
+			HOSTENT *lpHostEnt;
+			struct in_addr inAddr;
+			LPSTR lpaddr;
+			char ip[30];
+			memset(ip, 0, sizeof(ip));
+			strncpy_s(ip, szIP, szIP.GetLength());
+			lpHostEnt = gethostbyname(ip);
+			if (!lpHostEnt)return FALSE;
+			lpaddr = lpHostEnt->h_addr_list[0];
+			memmove(&inAddr, lpaddr, 4);
+			sprintf_s(ip, "%d.%d.%d.%d", inAddr.S_un.S_addr & 0xff, (inAddr.S_un.S_addr >> 8) & 0xff, (inAddr.S_un.S_addr >> 16) & 0xff, (inAddr.S_un.S_addr >> 24) & 0xff);
+			strcpy_s(g_userinfo[i].ip, ip);
+			strcpy_s(g_userinfo[i].servername, szServerName);
+			g_userinfo[i].port = atoi(szPort);
+			
+			typedef struct{
+	char charname[30];
+	char password[30];
+	char safecode[30];
+	int index;			//第几个帐号
+	char scriptName[100];//脚本文件名
+publicfunction.h
+	char ip[30];
+	int port;
+	char servername[30];
+}USERINFO;
