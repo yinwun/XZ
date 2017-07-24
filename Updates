@@ -19,11 +19,28 @@
 			}
 		}
 2592
-if (charotherinfo.fightpet == -1 && nLockFightPet >= 1 && nLockFightPet <= 5)
+//锁战宠骑宠,//ridepet骑乘宠物编号,无骑宠为-1,//fightpet无战宠为-1,有战宠为其编号
+			if(chardetail.ridepet==-1 && nLockRidePet>=1 && nLockRidePet<=5)
+				SendRidePet(nLockRidePet-1);
+			if (charotherinfo.fightpet == -1 && nLockFightPet >= 1 && nLockFightPet <= 5)//锁定战宠，打飞
 			{
-				SendPetState(nLockFightPet >= 1, 1);
+				SendPetState(nLockFightPet - 1, 1);
 			}
-			else
+			else 
 			{
-				SendFightPet(nLockFightPet - 1);
+				if (nLockFightPet >= 1 && nLockFightPet <= 5)//锁定战宠
+				{
+					if (nLockRidePet == nLockFightPet)//骑战
+					{
+						if (charotherinfo.fightpet != (nLockFightPet - 1))//战宠不是骑宠
+						{
+							SendPetState(nLockFightPet - 1, 1);
+						}
+					}
+					else//普通锁定战宠
+					{
+						SendFightPet(nLockFightPet - 1);
+					}
+				}
+				
 			}
