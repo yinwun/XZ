@@ -18,7 +18,7 @@
 				SendCommand(cmd);
 			}
 		}
-
+2592
 if (charotherinfo.fightpet == -1 && nLockFightPet >= 1 && nLockFightPet <= 5)
 			{
 				SendPetState(nLockFightPet >= 1, 1);
