@@ -1,10 +1,10 @@
 2800 rows Parse_BC_StatusString(p);
 2845 rows call back
 4451
-//换宠
-		if (strlen(bc_char[position].petname) > 0)
+//锁定战宠
+		if (nLockFightPet >= 0 && nLockFightPet <= 5)
 		{
-			if (nLockFightPet >= 0 && nLockFightPet <= 5)
+			if (strlen(bc_char[position].petname) > 0)
 			{
 				if (bc_char[position].petpos != (nLockFightPet - 1))
 				{
@@ -12,10 +12,7 @@
 					SendCommand(cmd);
 				}
 			}
-		}
-		else
-		{
-			if (nLockFightPet >= 0 && nLockFightPet <= 5)
+			else
 			{
 				sprintf_s(cmd, "S|%s", nLockFightPet - 1);
 				SendCommand(cmd);
