@@ -1,6 +1,7 @@
 2800 rows Parse_BC_StatusString(p);
 2845 rows call back
 4451
+2017.7.24 DpMain.cpp
 //锁定战宠
 		if (nLockFightPet >= 0 && nLockFightPet <= 5)
 		{
@@ -44,3 +45,5 @@
 				}
 				
 			}
+DIPIDlg.cpp
+298
