@@ -56,7 +56,9 @@ DIPIDlg.cpp
 		}
 		f.Close();		
 	}
-	catch(...){
+
+
+catch(...){
 	}
 	//帐号处理
 	g_userNum=m_list.GetItemCount();
@@ -67,7 +69,7 @@ DIPIDlg.cpp
 			szPwd=m_list.GetItemText(i,1);
 			szSafeCode=m_list.GetItemText(i,2);
 			szScript=m_list.GetItemText(i,3);
-
+A|B|F|10|11|12|
 			szIP = m_list.GetItemText(i, 4);
 			szPort = m_list.GetItemText(i, 5);
 			szServerName = m_list.GetItemText(i, 6);
@@ -120,3 +122,6 @@ DpMain.cpp
 	para.nNotityType=NOTIFY_MSG;
 	//连接服务端
 	if (!ConnectServer(socket, puser->ip, puser->port)){
+	//敌人前排从上到下依次为(13，11，F，10，12)，敌人后排从上到下为(E,C,A,B,D)
+		//我方宠物从上到下依次为（9，7，5，6，8），我方人员从上到下为(4,2,0,1,3)
+A|B|F|10|11|12|
