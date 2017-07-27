@@ -147,3 +147,18 @@ sendattch 4431
 		Tokenize(staticEnemylist, e, "|", pos);
 		
 	}
+
+2627
+if(chardetail.ridepet==-1 && nLockRidePet>=1 && nLockRidePet<=5)
+			{ 
+				if (charotherinfo.fightpet > 0)
+				{
+					if (nLockRidePet == nLockFightPet)
+					{
+						SendPetState(nLockFightPet - 1, 0);
+						Sleep(10);
+					}
+				}
+
+				SendRidePet(nLockRidePet - 1);
+			}
