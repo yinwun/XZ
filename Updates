@@ -87,7 +87,9 @@ A|B|F|10|11|12|
 			LPSTR lpaddr;
 			char ip[30];
 			memset(ip, 0, sizeof(ip));
-			strncpy_s(ip, szIP, szIP.GetLength());
+
+
+strncpy_s(ip, szIP, szIP.GetLength());
 			lpHostEnt = gethostbyname(ip);
 			if (!lpHostEnt)return FALSE;
 			lpaddr = lpHostEnt->h_addr_list[0];
@@ -162,3 +164,9 @@ if(chardetail.ridepet==-1 && nLockRidePet>=1 && nLockRidePet<=5)
 
 				SendRidePet(nLockRidePet - 1);
 			}
+
+
+P|P|声望：958526      气势：0           |0
+P|P|贝壳：0           活力：0           |0
+P|P|个人积分：289|0
+P|P|会员点数：1|0
