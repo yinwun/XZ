@@ -1,4 +1,5 @@
 SetProcessAffinityMask
+http://www.cnblogs.com/cqubsj/p/6074509.html
 2800 rows Parse_BC_StatusString(p);
 2845 rows call back
 4451
