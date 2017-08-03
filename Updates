@@ -1,3 +1,4 @@
+SetProcessAffinityMask
 2800 rows Parse_BC_StatusString(p);
 2845 rows call back
 4451
