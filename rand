@@ -1,0 +1,6 @@
+int main(){ char buf[1024] = { 0 };
+ int a = 0; int b = 99; int c;
+ int d1; int d2; int d3; int d4; int d5; int d6;
+ d1 = (rand() % (b - a)) + a; d2 = (rand() % (b - a)) + a; d3 = (rand() % (b - a)) + a; d4 = (rand() % (b - a)) + a; d5 = (rand() % (b - a)) + a; d6 = (rand() % (b - a)) + a;
+ printf("%d-%d\n", d1, d2); printf("%X-%X-%X-%X-%X-%X\n", KeyDicts[d1], KeyDicts[d2], KeyDicts[d3], KeyDicts[d4], KeyDicts[d5], KeyDicts[d6]);
+ //c = (rand() % (b - a)) + a; //printf("%d\n", c); //GetALLNicInfo(buf); //printf("%s\n", buf); //printf("%X\n", KeyDicts[c]); system("pause");    return 0; }
